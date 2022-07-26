@@ -5,7 +5,18 @@
     <h1>Главная страница</h1>
     <p class="lead">Информация в разработке</p>
     <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Узнать больше</a>
+
+        {{ range .}}
+        <div class="alert alert-danger">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Anons }}</p>
+        <a href="/post/{{ .Id }}" class="btn btn-danger">Читать далее</a>
+        </div>
+        {{ else }}
+        <p class="lead">Статей нет!</p>
+        {{ end }}
+
+        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Узнать больше</a>
     </p>
 </main>
 
